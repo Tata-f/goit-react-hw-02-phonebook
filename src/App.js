@@ -18,7 +18,11 @@ class App extends Component {
       number,
       id: shortid.generate(),
     };
-    const doubledContact = contacts.map(contact => contact.name).includes(name);
+
+    const normalizedText = name.toLowerCase();
+    const doubledContact = contacts
+      .map(contact => contact.name.toLowerCase())
+      .includes(normalizedText);
 
     if (doubledContact) {
       alert(`${name} is already in contacts`);
