@@ -4,12 +4,17 @@ import s from './Filter.module.css';
 
 const Filter = ({ value, onChange }) => {
   return (
-    <>
-      <p>Find contacts by name</p>
+    <div className={s.filterContainer}>
+      <p className={s.title}>Find contacts by name</p>
       <label>
-        <input type="text" value={value} onChange={onChange}></input>
+        <input
+          className={s.input}
+          type="text"
+          value={value}
+          onChange={onChange}
+        ></input>
       </label>
-    </>
+    </div>
   );
 };
 

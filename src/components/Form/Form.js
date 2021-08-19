@@ -40,10 +40,11 @@ class Form extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameInputId}>
+      <form className={s.form} onSubmit={this.handleSubmit}>
+        <label className={s.label} htmlFor={this.nameInputId}>
           Name
           <input
+            className={s.input}
             id={this.nameInputId}
             onChange={this.handleInputChange}
             type="text"
@@ -54,9 +55,10 @@ class Form extends Component {
             required
           />
         </label>
-        <label htmlFor={this.numberInputId}>
+        <label className={s.label} htmlFor={this.numberInputId}>
           Number
           <input
+            className={s.input}
             id={this.numberInputId}
             onChange={this.handleInputChange}
             type="tel"
@@ -67,7 +69,9 @@ class Form extends Component {
             required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={s.button} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

@@ -18,9 +18,9 @@ class App extends Component {
       number,
       id: shortid.generate(),
     };
-    const dubbleContact = contacts.map(contact => contact.name).includes(name);
+    const doubledContact = contacts.map(contact => contact.name).includes(name);
 
-    if (dubbleContact) {
+    if (doubledContact) {
       alert(`${name} is already in contacts`);
     } else {
       this.setState(({ contacts }) => ({
@@ -55,18 +55,24 @@ class App extends Component {
     return (
       <>
         <Container>
-          <Form onSubmit={this.addContact}></Form>
+          <h1 className="title">Phonebook</h1>
         </Container>
 
         <Container>
-          <ContactsList
-            onDeleteContact={this.deleteContact}
-            contacts={filteredContacts}
-          ></ContactsList>
-        </Container>
+          <Container>
+            <Form onSubmit={this.addContact}></Form>
+          </Container>
 
-        <Container>
-          <Filter onChange={this.changeFilter} value={filter}></Filter>
+          <Container>
+            <ContactsList
+              onDeleteContact={this.deleteContact}
+              contacts={filteredContacts}
+            ></ContactsList>
+          </Container>
+
+          <Container>
+            <Filter onChange={this.changeFilter} value={filter}></Filter>
+          </Container>
         </Container>
       </>
     );
